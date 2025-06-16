@@ -1,0 +1,11 @@
+<section class="row">
+  <router-outlet />
+  <router-outlet name="author" />
+</section>
+
+<table *ngFor="let post of posts$ | async">
+    <tr>
+        <td>{{post.title}}</td>
+        <td><button routerLinkActive="active" [routerLink]="['/posts', post.id]">Allez aux détails</button></td>
+    </tr>
+</table>

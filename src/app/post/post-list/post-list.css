@@ -1,0 +1,22 @@
+section.row {
+    display: flex;
+    gap: 30px;
+}
+
+@media screen and (width < 800px) {
+    section.row {
+        flex-direction: column;
+    }
+}
+
+table {
+    border-spacing: 0;
+}
+
+tr:has(.active) button {
+    display: none;
+}
+
+button.active {
+    display: none;
+}
