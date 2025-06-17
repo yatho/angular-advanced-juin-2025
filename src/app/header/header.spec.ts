@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Header } from './header';
 import { provideZonelessChangeDetection } from '@angular/core';
+import { provideRouter } from '@angular/router';
 
 describe('Header', () => {
   let component: Header;
@@ -9,8 +10,9 @@ describe('Header', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [Header],
+      imports: [Header],
       providers: [
+        provideRouter([]),
         provideZonelessChangeDetection()
       ]
     })

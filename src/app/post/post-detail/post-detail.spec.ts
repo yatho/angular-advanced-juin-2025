@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PostDetail } from './post-detail';
 import { provideZonelessChangeDetection } from '@angular/core';
 import { RouterTestingHarness } from '@angular/router/testing';
-import { RouterModule } from '@angular/router';
+import { provideRouter, withComponentInputBinding } from '@angular/router';
 
 class Page {
   constructor(public nativeElement: HTMLElement) {}
@@ -21,16 +21,14 @@ describe('PostDetail', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterModule.forRoot([{
+      providers: [
+        provideRouter([{
         path: 'posts/:id',
         component: PostDetail,
         resolve: {
           post: postResolver
         }
-      }], {
-        bindToComponentInputs: true
-      })],
-      providers: [
+      }], withComponentInputBinding()),
         provideZonelessChangeDetection()
       ]
     })

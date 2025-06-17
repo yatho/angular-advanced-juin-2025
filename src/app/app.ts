@@ -1,11 +1,14 @@
 import { Component, inject, signal } from '@angular/core';
-import { NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { NavigationEnd, NavigationStart, Router, RouterOutlet } from '@angular/router';
+import { NgIf } from '@angular/common';
+import { MatProgressBar } from '@angular/material/progress-bar';
+import { Header } from './header/header';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.html',
-  standalone: false,
-  styleUrl: './app.css'
+    selector: 'app-root',
+    templateUrl: './app.html',
+    styleUrl: './app.css',
+    imports: [NgIf, MatProgressBar, Header, RouterOutlet]
 })
 export class App {
   protected title = 'angularAdvanced';

@@ -4,7 +4,6 @@ import { PostList } from './post-list';
 import { provideZonelessChangeDetection } from '@angular/core';
 import { Post } from '../services/post';
 import {vi} from 'vitest';
-import { RouterModule } from '@angular/router';
 
 describe('PostList', () => {
   let component: PostList;
@@ -12,20 +11,19 @@ describe('PostList', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PostList],
-      imports: [
-        RouterModule.forRoot([])
-      ],
-      providers: [
+    imports: [
+        PostList
+    ],
+    providers: [
         provideZonelessChangeDetection(),
         {
-          provide: Post,
-          useValue: {
-            getPosts: vi.fn()
-          }
+            provide: Post,
+            useValue: {
+                getPosts: vi.fn()
+            }
         }
-      ]
-    })
+    ]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(PostList);

@@ -9,11 +9,11 @@ describe('Dashboard', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [Dashboard],
-      providers: [
+    imports: [Dashboard],
+    providers: [
         provideZonelessChangeDetection()
-      ]
-    })
+    ]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(Dashboard);
