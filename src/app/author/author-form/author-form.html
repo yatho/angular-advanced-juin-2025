@@ -1,0 +1,30 @@
+@if(!!id) {
+    <h1>Update author</h1>
+} @else {
+    <h1>Create author</h1>
+}
+
+<form [formGroup]="formGroup" (ngSubmit)="saveAuthor()">
+    <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" formControlName="name">
+    </div>
+    <div>
+        <label for="photo">Photo</label>
+        <input type="text" id="photo" formControlName="photo">
+    </div>
+    <lib-address formControlName="address" />
+
+    <div formArrayName="pseudo">
+        <label>Pseudos</label>
+        @for(pseudo of formGroup.controls.pseudo.controls; track $index; let i = $index) {
+            <div>
+                <input type="text" id="pseudo" [formControl]="pseudo">
+                <button type="button" (click)="deletePseudo(i)">X</button>
+            </div>
+        }
+    </div>
+    <button type="button" (click)="addPseudo()">Ajouter un nouveau pseudo</button>
+
+    <button type="submit">Submit</button>
+</form>

@@ -1,0 +1,6 @@
+<h1>Select input</h1>
+
+<form (submit)="submit()" [formGroup]="formGroup">
+    <lib-autocomplete placeholder="Select category" [options]="categories" formControlName="category" />
+    <button mat-button type="submit">Valider</button>
+</form>

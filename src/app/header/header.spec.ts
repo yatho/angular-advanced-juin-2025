@@ -29,7 +29,7 @@ describe('Header', () => {
 
   it('should have two links', () => {
     const links = fixture.nativeElement.querySelectorAll('a');
-    expect(links.length).toBe(2);
+    expect(links.length).toBe(7);
     expect(links[0].textContent).toBe('Dashboard');
     expect(links[1].textContent).toBe('Posts');
   });
