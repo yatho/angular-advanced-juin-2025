@@ -8,6 +8,6 @@ import { PostData } from '../services/post';
   styleUrl: './post-detail.css'
 })
 export class PostDetail {
-  @Input()
+  @Input({required: true})
   protected post?: PostData;
 }
