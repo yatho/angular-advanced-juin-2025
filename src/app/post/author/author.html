@@ -1,10 +1,14 @@
 
-<mat-card *ngIf="author$ | async as author">
+@if (author$ | async; as author) {
+  <mat-card>
     <img [src]="author.photo" alt="Auteur">
     <section>
-        <h2>{{author.name}}</h2>
+      <h2>{{author.name}}</h2>
     </section>
-    <p *ngIf="author.address as address">
+    @if (author.address; as address) {
+      <p>
         {{address.number}} {{address.street}} {{address.postalCode}} {{address.city}} {{address.country}}
-    </p>
-</mat-card>
+      </p>
+    }
+  </mat-card>
+}

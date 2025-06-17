@@ -1,9 +1,11 @@
-<mat-card *ngIf="post">
+@if (post) {
+  <mat-card>
     <section>
-        <h2>{{post.title}}</h2>
+      <h2>{{post.title}}</h2>
     </section>
     <img [src]="post.photo" alt="Post illustration">
     <p>
-        {{post.content}}
+      {{post.content}}
     </p>
-</mat-card>
+  </mat-card>
+}

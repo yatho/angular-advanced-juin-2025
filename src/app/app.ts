@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { NavigationEnd, NavigationStart, Router, RouterOutlet } from '@angular/router';
-import { NgIf } from '@angular/common';
+
 import { MatProgressBar } from '@angular/material/progress-bar';
 import { Header } from './header/header';
 
@@ -8,7 +8,7 @@ import { Header } from './header/header';
     selector: 'app-root',
     templateUrl: './app.html',
     styleUrl: './app.css',
-    imports: [NgIf, MatProgressBar, Header, RouterOutlet]
+    imports: [MatProgressBar, Header, RouterOutlet]
 })
 export class App {
   protected title = 'angularAdvanced';
