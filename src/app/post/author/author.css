@@ -20,3 +20,8 @@ mat-card {
     padding: 10px;
     background: lightblue
 }
+
+img {
+    width: auto;
+    height: auto;
+}

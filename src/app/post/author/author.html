@@ -1,7 +1,7 @@
 
 @if (author$ | async; as author) {
   <mat-card>
-    <img [src]="author.photo" alt="Auteur">
+    <img [ngSrc]="author.photo" alt="Auteur" width="770" height="513">
     <section>
       <h2>{{author.name}}</h2>
     </section>
