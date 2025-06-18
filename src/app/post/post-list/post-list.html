@@ -7,7 +7,7 @@
   <lib-tpl-card-list [list]="posts" title="Liste des posts">
       <ng-template #rowRef let-post>
         <td>{{post.title}}</td>
-        <td><button routerLinkActive="active" [routerLink]="['/posts', post.id]">Allez aux détails</button></td>
+        <td><button [routerLink]="['/posts', post.id]">Allez aux détails</button></td>
         <td><button type="button" (click)="selectedPost(post)">Selectionner le post {{post.id}} / {{post.author}}</button></td>
       </ng-template>
     </lib-tpl-card-list>
