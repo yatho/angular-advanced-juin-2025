@@ -8,6 +8,7 @@
     <tr>
       <td>{{post.title}}</td>
       <td><button routerLinkActive="active" [routerLink]="['/posts', post.id]">Allez aux détails</button></td>
+      <td><button (click)="selectedPost(post)">Sélectionner le post {{post.id}} / et donc l'auteur {{post.author}}</button></td>
     </tr>
   </table>
 }

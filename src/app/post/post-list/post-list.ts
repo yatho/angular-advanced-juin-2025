@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { Post } from '../services/post';
+import { Post, PostData } from '../services/post';
 import { RouterOutlet, RouterLinkActive, RouterLink } from '@angular/router';
 import { AsyncPipe } from '@angular/common';
 
@@ -10,5 +10,10 @@ import { AsyncPipe } from '@angular/common';
     imports: [RouterOutlet, RouterLinkActive, RouterLink, AsyncPipe]
 })
 export class PostList {
-  protected posts$ = inject(Post).getPosts();
+  private readonly postService = inject(Post);
+  protected posts$ = this.postService.getPosts();
+
+  protected selectedPost(post: PostData): void {
+    this.postService.selectPost(post);
+  }
 }

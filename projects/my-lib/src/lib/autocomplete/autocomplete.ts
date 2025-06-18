@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { FilteredListPipe } from '../filtered-list-pipe';
 import { ClickOutside } from '../click-outside';
@@ -28,10 +28,8 @@ protected searchValue?: string;
     this.onTouched();
   }
 
-  @Input()
-  options: string[] = [];
-  @Input()
-  placeholder: string = 'Search ...';
+  readonly options = input<string[]>([]);
+  readonly placeholder = input<string>('Search ...');
 
   private onChange = (value: string) => {};
   private onTouched = () => {};

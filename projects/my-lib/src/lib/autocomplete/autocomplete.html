@@ -1,6 +1,6 @@
 <div libClickOutside (libClickOutside)="openned = false">
   <input
-    [placeholder]="placeholder"
+    [placeholder]="placeholder()"
     type="text"
     [(ngModel)]="searchValue"
     (ngModelChange)="openned = true"
@@ -8,7 +8,7 @@
     />
   @if (openned) {
     <ul>
-      @for (option of options | filteredList: searchValue; track option) {
+      @for (option of options() | filteredList: searchValue; track option) {
         <li [libBoldSearchText]="searchValue" (click)="onOptionClick(option)">
           {{ option }}
         </li>

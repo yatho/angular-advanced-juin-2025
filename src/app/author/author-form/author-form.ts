@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { AuthorData, Authors } from '../../post/services/authors';
 import { FormGroup, FormControl, Validators, FormArray, ReactiveFormsModule } from '@angular/forms';
 import { take } from 'rxjs';
@@ -12,8 +12,7 @@ import { Address, AddressData } from 'my-lib';
 })
 export class AuthorForm {
   private readonly authorService = inject(Authors);
-  @Input({required: true})
-  public id?: number;
+  public readonly id = input.required<number | undefined>();
 
   protected formGroup = new FormGroup({
     name: new FormControl('', {
@@ -28,9 +27,10 @@ export class AuthorForm {
   });
 
   ngOnInit(): void {
-    if (!this.id) return;
+    const id = this.id();
+    if (!id) return;
 
-    this.authorService.getAuthorById(this.id).pipe(take(1)).subscribe(author => {
+    this.authorService.getAuthorById(id).pipe(take(1)).subscribe(author => {
       author.pseudo.forEach(() => this.addPseudo());
       this.formGroup.patchValue(author);
     });
@@ -40,8 +40,9 @@ export class AuthorForm {
     if (this.formGroup.invalid) return;
 
     const author: AuthorData = this.formGroup.getRawValue();
-    if (this.id) {
-      this.authorService.update(this.id, author).pipe(take(1)).subscribe(() => {
+    const id = this.id();
+    if (id) {
+      this.authorService.update(id, author).pipe(take(1)).subscribe(() => {
         console.log('MAJ ok', author);
       });
       return;

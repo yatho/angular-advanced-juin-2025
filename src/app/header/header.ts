@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { Post } from '../post/services/post';
 
 @Component({
   selector: 'app-header',
@@ -8,5 +9,7 @@ import { RouterLink } from '@angular/router';
   imports: [RouterLink]
 })
 export class Header {
-
+  private readonly postService = inject(Post);
+  protected selectedAuthors = this.postService.selectedAuthors;
+  protected selectedPosts = this.postService.selectedPosts;
 }

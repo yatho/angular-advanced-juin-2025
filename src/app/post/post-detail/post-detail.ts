@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { PostData } from '../services/post';
 
 import { MatCard } from '@angular/material/card';
@@ -10,6 +10,5 @@ import { MatCard } from '@angular/material/card';
     imports: [MatCard]
 })
 export class PostDetail {
-  @Input({required: true})
-  protected post?: PostData;
+  protected readonly post = input.required<PostData | undefined>();
 }
