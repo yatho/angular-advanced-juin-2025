@@ -31,7 +31,7 @@ describe('Author', () => {
         {
             provide: Authors,
             useValue: {
-                getAuthorById: vi.fn().mockReturnValue(of({ id: 1, name: 'Test Author' }))
+                getAuthorById: vi.fn().mockReturnValue(of({ id: 1, name: 'Test Author', photo: 'https://placehold.co/600x400/darkgrey/green?text=Post+4' }))
             }
         }
     ]

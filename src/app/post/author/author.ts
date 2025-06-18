@@ -3,13 +3,13 @@ import { Authors } from '../services/authors';
 import { ActivatedRoute } from '@angular/router';
 import { map, switchMap } from 'rxjs';
 import { AsyncPipe, NgOptimizedImage } from '@angular/common';
-import { MatCard } from '@angular/material/card';
+import { TplCard } from 'my-lib';
 
 @Component({
     selector: 'app-author',
     templateUrl: './author.html',
     styleUrl: './author.css',
-    imports: [MatCard, AsyncPipe, NgOptimizedImage]
+    imports: [AsyncPipe, NgOptimizedImage, TplCard]
 })
 export class Author {
   private readonly authorService = inject(Authors);

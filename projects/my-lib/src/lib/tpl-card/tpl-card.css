@@ -1,0 +1,16 @@
+section {
+    text-align: center;
+}
+
+mat-card {
+    padding: 10px;
+    background: lightblue
+}
+
+img {
+    object-fit: cover;
+}
+
+:host {
+    margin: 10px;
+}

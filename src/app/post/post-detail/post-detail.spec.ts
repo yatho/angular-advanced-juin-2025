@@ -13,7 +13,7 @@ class Page {
   }
 }
 
-const postResolver = () => ({ id: 1, title: 'Test Post', content: 'Content of the first post' });
+const postResolver = () => ({ id: 1, photo: 'https://placehold.co/600x400/darkgrey/green?text=Post+4', title: 'Test Post', content: 'Content of the first post' });
 
 describe('PostDetail', () => {
   let component: PostDetail;
@@ -35,6 +35,7 @@ describe('PostDetail', () => {
     .compileComponents();
 
     fixture = TestBed.createComponent(PostDetail);
+    fixture.componentRef.setInput('post', postResolver())
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -48,7 +49,7 @@ describe('PostDetail', () => {
     const component = await harness.navigateByUrl('/posts/1', PostDetail);
     const page = new Page(harness.routeNativeElement!);
     
-    expect(component['post']?.id).toBe(1);
+    expect(component['post']()?.id).toBe(1);
     expect(page.postTitle).toContain('Test Post');
   });
 });

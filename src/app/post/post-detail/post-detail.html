@@ -1,11 +1,9 @@
 @if (post(); as post) {
-  <mat-card>
-    <section>
-      <h2>{{post.title}}</h2>
-    </section>
+  <lib-tpl-card>
+    <h2>{{post.title}}</h2>
     <img [ngSrc]="post.photo" alt="Post illustration" width="832" height="554" priority>
     <p>
       {{post.content}}
     </p>
-  </mat-card>
+  </lib-tpl-card>
 }

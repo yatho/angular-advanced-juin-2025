@@ -1,18 +1,30 @@
-import { provideZonelessChangeDetection } from '@angular/core';
+import { Component, provideZonelessChangeDetection } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { App } from './app';
 import { Header } from './header/header';
 
+
+@Component({
+  selector: 'app-header',
+  template: ''
+}) class HeaderMock {
+
+}
+
 describe('App', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
     imports: [
-        Header,
         App
     ],
     providers: [provideRouter([]),provideZonelessChangeDetection()]
-}).compileComponents();
+}).overrideComponent( App,
+  {
+    remove: {imports : [Header]},
+    add: {imports : [HeaderMock]}
+  }
+).compileComponents();
   });
 
   it('should create the app', () => {

@@ -1,0 +1,10 @@
+<mat-card>
+    <h1>{{title()}}</h1>
+    <table>
+        @for (item of list(); track item) {
+            <tr>
+                <ng-template [ngTemplateOutlet]="rowTemplate()" [ngTemplateOutletContext]="{ $implicit: item }"></ng-template>
+            </tr>
+        }
+    </table>
+</mat-card>

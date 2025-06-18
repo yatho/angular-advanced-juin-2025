@@ -1,8 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Header } from './header';
-import { provideZonelessChangeDetection } from '@angular/core';
+import { provideZonelessChangeDetection, signal } from '@angular/core';
 import { provideRouter } from '@angular/router';
+import { Post } from '../post/services/post';
 
 describe('Header', () => {
   let component: Header;
@@ -13,7 +14,14 @@ describe('Header', () => {
       imports: [Header],
       providers: [
         provideRouter([]),
-        provideZonelessChangeDetection()
+        provideZonelessChangeDetection(),
+        {
+          provide: Post,
+          useValue: {
+            selectedPosts: signal([]),
+            selectedAuthors: signal([])
+          }
+        }
       ]
     })
     .compileComponents();
